@@ -7,9 +7,11 @@ Como pone en las instrucciones tendremos una base de datos con solo 2 tablas:
 - authors. {
   id INT AUTO_INCREMENTE PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
+  surname VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
   image VARCHAR(255),
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT uq_author_fullname UNIQUE (name,surname)
   }
 
 - posts. {
@@ -66,6 +68,43 @@ Como pone en las instrucciones tendremos una base de datos con solo 2 tablas:
   }
 
   ### Métodos para AUTHORS.
+
+  # Obtener todos los autores
+  METHOD: GET
+  URL: /api/authors
+  HEADERS: X
+  BODY: X
+
+  RESPONSE: Array de objetos con todos los autores de la base de datos. 
+
+  # Obtener un autor en concreto
+  METHOD: GET
+  URL: /api/authors/:name/:surname
+  HEADERS: X
+  BODY:
+
+  RESPONSE: Array con el objeto del autor en concreto. 
+
+  # Crear un autor 
+  METHOD: POST
+  URL: /api/authors
+  HEADERS: X
+  BODY: 
+  Content-type: json-application
+
+  {
+    "name": "David",
+    "surname": "Ramirez Moro",
+    "email": "david123ramirez@gmail.com",
+    "image": "ruta relativa de la imagen"
+  }
+
+  # Recuperar todos los posts escritos por un autor en concreto. 
+  METHOD: GET
+  URL: /api/authors/:name/:surname/posts
+  HEADERS: X
+  BODY: X
+
 
 # Express Base Application for API Creation
 
