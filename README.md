@@ -1,31 +1,71 @@
 # Actividad 8: Diseño de API con base de datos MySQL
 
-La actividad consiste en crear una base de datos y establecer un back-end que gestione todas las peticiones para la obtención de la información. 
+La actividad consiste en crear una base de datos y establecer un back-end que gestione todas las peticiones para la obtención de la información.
 
 Como pone en las instrucciones tendremos una base de datos con solo 2 tablas:
 
 - authors. {
-    id INT AUTO_INCREMENTE PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    image VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    }
+  id INT AUTO_INCREMENTE PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  image VARCHAR(255),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  }
 
 - posts. {
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    author_id INT NOT NULL,
-    title VARCHAR(255) NOT NULL,
-    description TEXT NOT NULL,
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAIN fk_posts_author
-      FOREIGN KEY(author_id) REFERENCES authors(id)
-      ON DELETE CASCADE ON UPDATE CASCADE;
-    
-    INDEX idx_posts_author(author_id),
-    INDEX idx_posts_category (category)
-}
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  author_id INT NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  category VARCHAR(200),
+  CONSTRAIN fk_posts_author
+  FOREIGN KEY(author_id) REFERENCES authors(id)
+  ON DELETE CASCADE ON UPDATE CASCADE;
 
+      INDEX idx_posts_author(author_id),
+      INDEX idx_posts_category (category)
+
+  }
+
+  ## Creación de las rutas de la API
+
+  ### Métodos para POSTS.
+
+  # Listar todos los posts con los datos del autor incluido.
+
+  METHOD: GET
+  URL: /api/posts
+  HEADERS: X
+  BODY: X
+
+  RESPONSE: Array de objetos donde cada objeto es un posts y los datos del autor.
+
+  # Listar un post en concreto con los datos del autor.
+
+  METHOD: GET
+  URL: /api/posts/:id
+  HEADERS: X
+  BODY: X
+
+  RESPONSE: Array con un objeto que es el post con los datos del autor.
+
+  # Crea un post.
+
+  METHOD: POST
+  URL: /api/posts
+  HEADERS: X
+  BODY:
+  Content-type: json-aplication
+
+  {
+  "author_id": "Lore ipsun",
+  "title": "Lore ipsum",
+  "category": "Lore Lore Lore", 
+  "description": "Lore ipsum lore ipsum"
+  }
+
+  ### Métodos para AUTHORS.
 
 # Express Base Application for API Creation
 
