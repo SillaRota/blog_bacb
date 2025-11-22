@@ -1,3 +1,32 @@
+# Actividad 8: Diseño de API con base de datos MySQL
+
+La actividad consiste en crear una base de datos y establecer un back-end que gestione todas las peticiones para la obtención de la información. 
+
+Como pone en las instrucciones tendremos una base de datos con solo 2 tablas:
+
+- authors. {
+    id INT AUTO_INCREMENTE PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    image VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    }
+
+- posts. {
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    author_id INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAIN fk_posts_author
+      FOREIGN KEY(author_id) REFERENCES authors(id)
+      ON DELETE CASCADE ON UPDATE CASCADE;
+    
+    INDEX idx_posts_author(author_id),
+    INDEX idx_posts_category (category)
+}
+
+
 # Express Base Application for API Creation
 
 This is a basic Express application template designed to help you create APIs
