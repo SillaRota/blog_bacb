@@ -35,7 +35,7 @@ ON DELETE CASCADE ON UPDATE CASCADE;
 
 ## Creación de las rutas de la API
 
-### MǸtodos para POSTS
+### Métodos para POSTS
 
 **Listar todos los posts con los datos del autor incluido.**
 
@@ -103,9 +103,9 @@ ON DELETE CASCADE ON UPDATE CASCADE;
 }
 ```
 
-### Recuperar todos los posts escritos por un autor en concreto
+### Recuperar todos los posts escritos por un autor (:id) en concreto
 
 - METHOD: GET
-- URL: /api/authors/:name/:surname/posts
+- URL: /api/authors/:id/posts
 - HEADERS: X
 - BODY: X
