@@ -1,6 +1,5 @@
 const db = require('../config/db'); 
 
-
 const selectAuthors = async () => {
   const [result] = await db.query('SELECT * FROM authors'); 
   if (result.length === 0) return null;

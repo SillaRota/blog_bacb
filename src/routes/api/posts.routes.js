@@ -6,11 +6,12 @@ const {
     createPost 
 } = require('../../controllers/posts.controller');
 
+const { checkPost} = require('../../middleware/posts.middleware');
 
 // Métodos GET
 router.get('/', getAll );
-router.get('/:id', getPostById);
+router.get('/:id',checkPost, getPostById);
 // Métodos POST
-router.post('/', createPost) 
+router.post('/', createPost);
 
 module.exports = router;

@@ -69,6 +69,8 @@ ON DELETE CASCADE ON UPDATE CASCADE;
 }
 ```
 
+-RESPONSE: Array con un objeto que el el post con los datos del autor incluido. 
+
 ### Métodos para AUTHORS
 
 **Obtener todos los autores**

@@ -8,7 +8,6 @@ const getAll =  async (req, res) => {
       })
     }
     res.json(authors); 
-
 };
 
 const getAuthorByName = async ( req, res) => {

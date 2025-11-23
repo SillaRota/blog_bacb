@@ -1,5 +1,11 @@
 USE blog;
 
+-- Reset tablas antes de insertar datos
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE posts;
+TRUNCATE TABLE authors;
+SET FOREIGN_KEY_CHECKS = 1;
+
 -- Autores de ejemplo
 INSERT INTO authors (name, surname, email, image) VALUES
   ('Ana', 'Martinez', 'ana.martinez@example.com', 'https://picsum.photos/id/1011/200/200'),
