@@ -2,6 +2,57 @@
 
 La actividad consiste en crear una base de datos y establecer un back-end que gestione todas las peticiones para la obtención de la información.
 
+Aqui se listan los diferentes tipos de URLs para testear este proyecto. Recuerde que para que todos funcione correctamente debe de sustituir en el archivo .env.example, los valores que aparacen por los de sus máquina y renombrarlo como .env. 
+
+### Listar autores
+GET http://localhost:3000/api/authors
+
+### Obtener autor por nombre y apellido
+GET http://localhost:3000/api/authors/Ana/Martinez
+
+### Intenatr obtener un autor por nombre y apellido QUE NO EXISTE
+GET http://localhost:3000/api/authors/Ana/Pera 
+
+### Obtener posts de un autor
+GET http://localhost:3000/api/authors/Ana/Martinez/posts
+
+### Obtener posts de un autor QUE NO EXISTE
+GET http://localhost:3000/api/authors/Ana/Pera/posts
+
+### Obtener posts de un autor que NO tiene posts
+GET http://localhost:3000/api/authors/Lucia/Perez/posts
+
+### Crear autor
+POST http://localhost:3000/api/authors
+Content-Type: application/json
+
+{
+  "name": "Claudia",
+  "surname": "Cristina Corona",
+  "email": "ccclau@example.com",
+  "image": "https://picsum.photos/seed/lucia/200/200"
+}
+
+
+### Listar los posts con los autores
+GET http://localhost:3000/api/posts
+
+### Obtener post por id
+GET http://localhost:3000/api/posts/2
+
+### Crear un nueva post
+POST  http://localhost:3000/api/posts
+Content-Type: application/json
+
+{
+  "title": "Titulo",
+  "description": "Descripcion del post",
+  "category": "Backend",
+  "author_id": 1
+}
+
+
+
 ## Estructura de tablas
 
 ### authors
