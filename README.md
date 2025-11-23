@@ -7,7 +7,7 @@ La actividad consiste en crear una base de datos y establecer un back-end que ge
 ### authors
 
 ```
-id INT AUTO_INCREMENTE PRIMARY KEY,
+id INT AUTO_INCREMENTE NOT NULL PRIMARY KEY,
 name VARCHAR(255) NOT NULL,
 surname VARCHAR(255) NOT NULL,
 email VARCHAR(255) NOT NULL UNIQUE,
