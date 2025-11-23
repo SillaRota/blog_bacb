@@ -1,1 +1,6 @@
-// Define your model here
+const db = require('../config/db');
+
+
+
+
+module.exports = { };

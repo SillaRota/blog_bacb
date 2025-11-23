@@ -4,16 +4,15 @@ const {
     getAll,
     getAuthorByName,
     createAuthor, 
-    getPostsByAuthorID: getPostsById,
-    getPostsByAuthorID
+    getPostsByAuthor
 } = require('../../controllers/authors.controller');
 
+const { checkAuthorCreate, checkAuthor } = require('../../middleware/authors.middelware');
 
 // Define your routes here
 router.get('/',getAll);
-router.get('/:name/:surname/posts', getPostsByAuthorID);
-router.get('/:name/:surname', getAuthorByName);
-router.get('/:id/posts', getPostsById);
+router.get('/:name/:surname/posts',checkAuthor, getPostsByAuthor);
+router.get('/:name/:surname',checkAuthor ,getAuthorByName);
 
-router.post('/',createAuthor); 
+router.post('/', checkAuthorCreate, createAuthor); 
 module.exports = router;
