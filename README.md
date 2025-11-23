@@ -103,6 +103,8 @@ ON DELETE CASCADE ON UPDATE CASCADE;
 }
 ```
 
+-RESPONSE: Array con el autor en concreto creado. 
+
 ### Recuperar todos los posts escritos por un autor (:id) en concreto
 
 - METHOD: GET

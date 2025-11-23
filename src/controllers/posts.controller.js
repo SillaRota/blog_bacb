@@ -1,3 +1,5 @@
+const PostsModel = require('../models/posts.model'); 
+
 const getAll = (req, res) => {
     
 };

@@ -10,7 +10,6 @@ const {
 // Métodos GET
 router.get('/', getAll );
 router.get('/:id', getPostById);
-
 // Métodos POST
 router.post('/', createPost) 
 

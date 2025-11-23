@@ -1,0 +1,19 @@
+### Obtener todos los autores
+GET http://localhost:3000/api/authors
+
+### Obtener un autor por nombre y apellido
+GET http://localhost:3000/api/authors/Ana/Martinez
+
+### Obtener posts de un autor
+GET http://localhost:3000/api/authors/Ana/Martinez/posts
+
+### Crear un autor
+POST http://localhost:3000/api/authors
+Content-Type: application/json
+
+{
+  "name": "Lucia",
+  "surname": "Peroeez",
+  "email": "lucia.pereez@eoxamople.com",
+  "image": "https://picsum.photos/seed/lucia/200/200"
+}
